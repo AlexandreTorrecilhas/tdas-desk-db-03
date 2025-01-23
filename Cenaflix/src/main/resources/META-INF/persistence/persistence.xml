@@ -4,7 +4,7 @@
     xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
     https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
     
-    <persistence-unit>
+    <persistence-unit name="Cenaflix">
         <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name ="jakarta.persistence.jdbc.url" value="//localhost/cenaflix"/>
         <property name="jakarta.persistance.jdbc.user" value="mestre"/>
