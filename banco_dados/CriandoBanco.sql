@@ -40,23 +40,3 @@ CREATE TABLE usuario(
 ALTER TABLE usuario
 	MODIFY senha VARCHAR(255) NOT NULL;
 
-/*Criando triiger para encriptar a senha antes de inserir o valor*/
-DELIMITER //
-CREATE TRIGGER hash_usuario_senha
-BEFORE INSERT ON usuario
-FOR EACH ROW
-BEGIN
-	SET NEW.senha = SHA2(NEW.senha, 256);
-END//
-DELIMITER ;
-
-/*Criando o trigger para encriptar o valor antes da consulta*/
-DELIMITER //
-
-
-DELIMITER ;
-
-INSERT INTO usuario(login, senha)
-	VALUES("carloss", "mudar@123");
-    
-DELETE FROM usuario WHERE id_usuario = 1;

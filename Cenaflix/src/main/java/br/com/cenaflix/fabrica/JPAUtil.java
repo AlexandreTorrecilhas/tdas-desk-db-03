@@ -1,4 +1,4 @@
-package br.com.cenaflix.conexao;
+package br.com.cenaflix.fabrica;
 
 //Pacotes Jakartas
 import jakarta.persistence.EntityManagerFactory;
