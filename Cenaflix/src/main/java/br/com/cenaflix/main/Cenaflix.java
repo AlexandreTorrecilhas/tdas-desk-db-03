@@ -4,6 +4,8 @@
 
 package br.com.cenaflix.main;
 
+import br.com.cenaflix.main.telas.telalogin.JFrameTelaLogin;
+
 /**
  *
  * @author carlo
@@ -11,6 +13,6 @@ package br.com.cenaflix.main;
 public class Cenaflix {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new JFrameTelaLogin().setVisible(true);
     }
 }

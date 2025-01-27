@@ -5,11 +5,21 @@
     https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
     
     <persistence-unit name="Cenaflix">
-        <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name ="jakarta.persistence.jdbc.url" value="//localhost/cenaflix"/>
-        <property name="jakarta.persistance.jdbc.user" value="mestre"/>
-        <property name="jakarta.persistence.jdbc.password" value="mudar@123"/>
-        <property name="hibernate.dialect" values="org.hibernate.dialect.MySQL8Dialect"/>
+        
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name ="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/cenaflix"/>
+            <property name="jakarta.persistence.jdbc.user" value="mestre"/>
+            <property name="jakarta.persistence.jdbc.password" value="mudar@123"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            
+            
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- or 'create', depending on your needs -->
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
     </persistence-unit>
  </persistence> 
 

@@ -17,13 +17,15 @@ import jakarta.persistence.GenerationType;
  * @author carlos.sa
  */
 @Entity
+@Table(name = "usuario")
 class UsuarioModelo{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "login")
+    private int id_usuario;
+    @Column(name = "login" ,nullable = false, unique = true)
     private String login;
+    @Column(name = "senha", nullable = false)
     private String senha;
     
     public UsuarioModelo(String login, String senha){

@@ -40,3 +40,4 @@ CREATE TABLE usuario(
 ALTER TABLE usuario
 	MODIFY senha VARCHAR(255) NOT NULL;
 
+GRANT SELECT, UPDATE, DELETE, INSERT ON cenaflix.* TO "mestre"@"localhost";
