@@ -28,7 +28,7 @@ class UsuarioDao {
     
     }
     
-    public boolean consultaLogin(UsuarioModelo login){
+    public boolean consultaLogin(UsuarioEntidade login){
         try{
             this.login = em.createQuery(consultaPeloLogin)
                     .setParameter("login", login.getLogin())

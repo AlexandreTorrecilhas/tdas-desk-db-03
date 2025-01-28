@@ -18,7 +18,7 @@ import jakarta.persistence.GenerationType;
  */
 @Entity
 @Table(name = "usuario")
-class UsuarioModelo{
+class UsuarioEntidade{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ class UsuarioModelo{
     @Column(name = "senha", nullable = false)
     private String senha;
     
-    public UsuarioModelo(String login, String senha){
+    public UsuarioEntidade(String login, String senha){
         this.login = login;
         this.senha = senha;
     }
