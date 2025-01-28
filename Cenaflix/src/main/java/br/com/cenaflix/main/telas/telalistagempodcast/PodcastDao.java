@@ -13,5 +13,11 @@ import jakarta.persistence.EntityManager;
  * @author carlos.sa
  */
 public class PodcastDao {
-    EntityManager em = JPAUtil.getEntityManager();
+    
+    private EntityManager em = JPAUtil.getEntityManager();
+    
+    
+    public PodcastDao(){}
+    
+    
 }
