@@ -41,3 +41,26 @@ ALTER TABLE usuario
 	MODIFY senha VARCHAR(255) NOT NULL;
 
 GRANT SELECT, UPDATE, DELETE, INSERT ON cenaflix.* TO "mestre"@"localhost";
+
+INSERT INTO `podcast` (`id_produtora`, `nome_episodio`, `qtd_episodio`, `duracao`) 
+VALUES 
+('The Future of AI', 10, 60),
+('History Uncovered', 8, 45),
+('Tech Trends Weekly', 20, 50),
+('Mindful Living', 15, 30),
+('True Crime Files', 12, 55),
+('Fitness First', 25, 40),
+('Space Explorations', 7, 65),
+('The Book Club', 10, 50),
+('Cooking Secrets', 18, 35),
+('Travel Diaries', 14, 60);
+
+SHOW CREATE TABLE produtora;
+
+INSERT INTO produtora (nome_produtora) 
+VALUES
+('TechWave Studios'),
+('History Chronicles Productions'),
+('Mindful Creations'),
+('True Crime Syndicate'),
+('Wanderlust Media');
