@@ -14,13 +14,12 @@ import javax.swing.table.DefaultTableModel;
 class ControladorTelaListagem {
     
     private PodcastDao podcastDao = new PodcastDao();
-    private PodcastEntidade podcastEntidade = new PodcastEntidade();
-    private ProdutoraEntidade protudoraEntidade = new ProdutoraEntidade();
     
     public ControladorTelaListagem(){}
     
     public void inserirDezPrimeirosValores(DefaultTableModel modeloTabela){
-        modeloTabela.addRow(this.podcastDao.pegarDezValoresIniciais(podcastEntidade, protudoraEntidade).toArray());
+        System.out.println("Entrei inserirDezPrimeirosValores");
+        modeloTabela.addRow(this.podcastDao.pegarDezValoresIniciais().toArray());
     }
     
 }

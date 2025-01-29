@@ -23,12 +23,16 @@ class PodcastDao {
     
     public PodcastDao(){}
     
-    public List<Object[]> pegarDezValoresIniciais(PodcastEntidade podcastEntidade, ProdutoraEntidade produtoraEntidade){
+    public List<Object[]> pegarDezValoresIniciais(){
         Query getDezValoresIniciais = this.em.createQuery("SELECT pod.id_podcast, pro.nomeProdutora, pod.nomeEpisodio, pod.qtdEpisodio, "
                 + "pod.duracao FROM PodcastEntidade pod "
                 + "JOIN pod.nomeProdutora pro");
         
         List<Object[]> resultado = getDezValoresIniciais.getResultList();
+        
+        for(Object c : resultado){
+            System.out.println(c.toString());
+        }
         
         return resultado;
     }
