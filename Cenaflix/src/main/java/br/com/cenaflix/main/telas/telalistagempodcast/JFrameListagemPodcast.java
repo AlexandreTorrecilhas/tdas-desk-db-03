@@ -4,17 +4,22 @@
  */
 package br.com.cenaflix.main.telas.telalistagempodcast;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author carlos.sa
  */
 public class JFrameListagemPodcast extends javax.swing.JFrame {
 
+    ControladorTelaListagem controlador = new ControladorTelaListagem();
+    
     /**
      * Creates new form JFrameListagemPodcast
      */
     public JFrameListagemPodcast() {
         initComponents();
+        this.controlador.inserirDezPrimeirosValores((DefaultTableModel) this.tblResultado.getModel());
     }
 
     /**

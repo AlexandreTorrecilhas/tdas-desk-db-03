@@ -4,6 +4,8 @@
  */
 package br.com.cenaflix.main.telas.telalogin;
 
+//Pacotes do projeto
+import br.com.cenaflix.main.ControladorVisibilidade;
 //Pacotes swing
 
 //Pacotes util
@@ -21,7 +23,8 @@ class ControladorTelaLogin {
         boolean usuarioExiste = new UsuarioDao().consultaLogin(login);
         
         if(usuarioExiste){
-            System.out.println("Funcionou======");
+            ControladorVisibilidade.fecharTelaLogin();
+            ControladorVisibilidade.mostrarTelaListagemPodcast();
         }
     }
     

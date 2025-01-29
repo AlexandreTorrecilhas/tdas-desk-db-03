@@ -31,7 +31,7 @@ public class ProdutoraEntidade {
     @Column(name = "nome_produtora")
     private String nomeProdutora;
     
-    @OneToMany(mappedBy = "produtora")
+    @OneToMany(mappedBy = "nomeProdutora")
     private List<PodcastEntidade> podcast; 
     
 }

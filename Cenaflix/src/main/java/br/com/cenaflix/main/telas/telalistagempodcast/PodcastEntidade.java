@@ -23,7 +23,7 @@ public class PodcastEntidade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_pocast;
+    private int id_podcast;
     
     @ManyToOne
     @JoinColumn(name = "id_produtora")
@@ -33,10 +33,10 @@ public class PodcastEntidade {
     private String nomeEpisodio;
     
     @Column(name = "qtd_episodio")
-    private int qtdEpisodio;
+    private short qtdEpisodio;
     
     @Column(name = "duracao")
-    private int producao;
+    private short duracao;
 
     public ProdutoraEntidade getNomeProdutora() {
         return nomeProdutora;
@@ -58,16 +58,16 @@ public class PodcastEntidade {
         return qtdEpisodio;
     }
 
-    public void setQtdEpisodio(int qtdEpisodio) {
+    public void setQtdEpisodio(short qtdEpisodio) {
         this.qtdEpisodio = qtdEpisodio;
     }
 
-    public int getProducao() {
-        return producao;
+    public int getDuracao() {
+        return duracao;
     }
 
-    public void setProducao(int producao) {
-        this.producao = producao;
+    public void setDuracao(short producao) {
+        this.duracao = producao;
     }
     
     

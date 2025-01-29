@@ -6,18 +6,31 @@ package br.com.cenaflix.main.telas.telalistagempodcast;
 
 //Pacotes projeto
 import br.com.cenaflix.fabrica.JPAUtil;
+//Pacotes util
+import java.util.List;
 //Pacotes jakarta
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.Query;
 /**
  *
  * @author carlos.sa
  */
-public class PodcastDao {
+class PodcastDao {
     
     private EntityManager em = JPAUtil.getEntityManager();
     
     
     public PodcastDao(){}
     
+    public List<Object[]> pegarDezValoresIniciais(PodcastEntidade podcastEntidade, ProdutoraEntidade produtoraEntidade){
+        Query getDezValoresIniciais = this.em.createQuery("SELECT pod.id_podcast, pro.nomeProdutora, pod.nomeEpisodio, pod.qtdEpisodio, "
+                + "pod.duracao FROM PodcastEntidade pod "
+                + "JOIN pod.nomeProdutora pro");
+        
+        List<Object[]> resultado = getDezValoresIniciais.getResultList();
+        
+        return resultado;
+    }
     
 }

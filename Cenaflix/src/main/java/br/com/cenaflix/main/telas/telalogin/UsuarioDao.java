@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 class UsuarioDao {
     
-    private final String consultaPeloLogin = "SELECT u.login FROM UsuarioModelo AS u WHERE u.login = :login";
+    private final String consultaPeloLogin = "SELECT u.login FROM UsuarioEntidade AS u WHERE u.login = :login";
     
     /** 
      * O valor do EntityManager é inicializado
