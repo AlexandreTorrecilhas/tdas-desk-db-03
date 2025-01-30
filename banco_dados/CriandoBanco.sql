@@ -37,12 +37,23 @@ CREATE TABLE usuario(
     CONSTRAINT un_usu_log UNIQUE(login)
 );
 
+INSERT INTO usuario(login, senha)
+	VALUES("mestre", "mudar@123");
+    
+SELECT * FROM usuario;
+
+SELECT trigger_name
+	FROM information_schema.triggers
+		WHERE trigger_schema = "cenaflix";
+        
+DROP TRIGGER IF EXISTS hash_usuario_senha;        
+
 ALTER TABLE usuario
 	MODIFY senha VARCHAR(255) NOT NULL;
 
 GRANT SELECT, UPDATE, DELETE, INSERT ON cenaflix.* TO "mestre"@"localhost";
 
-INSERT INTO `podcast` (`id_produtora`, `nome_episodio`, `qtd_episodio`, `duracao`) 
+INSERT INTO podcast (nome_episodio, qtd_episodio, duracao) 
 VALUES 
 ('The Future of AI', 10, 60),
 ('History Uncovered', 8, 45),
@@ -64,3 +75,5 @@ VALUES
 ('Mindful Creations'),
 ('True Crime Syndicate'),
 ('Wanderlust Media');
+
+SELECT * FROM podcast;

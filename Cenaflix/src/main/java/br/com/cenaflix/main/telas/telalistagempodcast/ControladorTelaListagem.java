@@ -5,6 +5,7 @@
 package br.com.cenaflix.main.telas.telalistagempodcast;
 
 //Pacotes swing
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,6 +19,7 @@ class ControladorTelaListagem {
     public ControladorTelaListagem(){}
     
     public void inserirDezPrimeirosValores(DefaultTableModel modeloTabela){
+        JOptionPane.showMessageDialog(null, "inserirDezPrimeirosValores");
         System.out.println("Entrei inserirDezPrimeirosValores");
         modeloTabela.addRow(this.podcastDao.pegarDezValoresIniciais().toArray());
     }

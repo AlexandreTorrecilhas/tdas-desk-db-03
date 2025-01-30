@@ -12,16 +12,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JFrameListagemPodcast extends javax.swing.JFrame {
 
-    ControladorTelaListagem controlador = new ControladorTelaListagem();
+    private ControladorTelaListagem controlador = new ControladorTelaListagem();
+    String[] colunas = {"id_podcast", "id_produtora", "nome_episodio", "qtd_episodio", "duracao"};
+    private final DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
     
     /**
      * Creates new form JFrameListagemPodcast
      */
     public JFrameListagemPodcast() {
         initComponents();
-        this.controlador.inserirDezPrimeirosValores((DefaultTableModel) this.tblResultado.getModel());
+        this.controlador.inserirDezPrimeirosValores(this.modeloTabela);
     }
 
+    private void inserirDezValores(){
+    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,17 +48,7 @@ public class JFrameListagemPodcast extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblResultado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Id", "Produtor", "Nome do Episódio", "Nº Episódio", "Duração", "URL do Repo"
-            }
-        ));
+        tblResultado.setModel(this.modeloTabela);
         jScrollPane1.setViewportView(tblResultado);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N

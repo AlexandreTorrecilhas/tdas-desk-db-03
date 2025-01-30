@@ -12,6 +12,7 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.Query;
+import javax.swing.JOptionPane;
 /**
  *
  * @author carlos.sa
@@ -30,9 +31,8 @@ class PodcastDao {
         
         List<Object[]> resultado = getDezValoresIniciais.getResultList();
         
-        for(Object c : resultado){
-            System.out.println(c.toString());
-        }
+        
+        JOptionPane.showMessageDialog(null, resultado.toArray().toString());
         
         return resultado;
     }
