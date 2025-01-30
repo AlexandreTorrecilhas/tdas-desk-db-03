@@ -4,7 +4,9 @@
  */
 package br.com.cenaflix.main.telas.telalistagempodcast;
 
+//Pacotes swing
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -12,20 +14,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JFrameListagemPodcast extends javax.swing.JFrame {
 
-    private ControladorTelaListagem controlador = new ControladorTelaListagem();
-    String[] colunas = {"id_podcast", "id_produtora", "nome_episodio", "qtd_episodio", "duracao"};
+    private final String[] colunas = {"id_podcast", "Nome Produtora", "Nome episodio", "Quantidade Episódios", "Duração"};
     private final DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
+    private ControladorTelaListagem controlador = new ControladorTelaListagem(this.modeloTabela);
+    private final TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(this.modeloTabela);
+    
+    
     
     /**
      * Creates new form JFrameListagemPodcast
      */
     public JFrameListagemPodcast() {
         initComponents();
-        this.controlador.inserirDezPrimeirosValores(this.modeloTabela);
-    }
-
-    private void inserirDezValores(){
-    
+        this.tblResultado.setRowSorter(sorter);
+        this.controlador.inserirDezPrimeirosValores();
     }
     
     /**
@@ -60,6 +62,11 @@ public class JFrameListagemPodcast extends javax.swing.JFrame {
         jLabel3.setText("Pesquisar podcast por produtor");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,6 +132,10 @@ public class JFrameListagemPodcast extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        this.controlador.getFilmePeloNomeDaProdutora(txtProdutora);
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

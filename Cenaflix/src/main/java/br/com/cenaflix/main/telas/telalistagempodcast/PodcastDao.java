@@ -10,9 +10,8 @@ import br.com.cenaflix.fabrica.JPAUtil;
 import java.util.List;
 //Pacotes jakarta
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 import jakarta.persistence.Query;
-import javax.swing.JOptionPane;
+import jakarta.persistence.TypedQuery;
 /**
  *
  * @author carlos.sa
@@ -31,8 +30,23 @@ class PodcastDao {
         
         List<Object[]> resultado = getDezValoresIniciais.getResultList();
         
+        return resultado;
+    }
+
+    public List<Object[]> getFilmePeloProdutor(String nomeProdutora){
+        Query getFilmeProdutor = this.em.createQuery("SELECT pod.id_podcast, pro.nomeProdutora, pod.nomeEpisodio, pod.qtdEpisodio "
+                + "FROM PodcastEntidade pod "
+                + "JOIN pod.nomeProdutora pro "
+                + "WHERE (:nomeProdutora IS NULL OR pro.nomeProdutora LIKE ':nomeProdutora')");
         
-        JOptionPane.showMessageDialog(null, resultado.toArray().toString());
+        if(nomeProdutora != null){
+            getFilmeProdutor.setParameter("nomeProdutora", "%" + nomeProdutora + "%");
+        }else{
+            getFilmeProdutor.setParameter("nomeProdutora", null);
+            getFilmeProdutor.setMaxResults(10);
+        }
+        
+        List<Object[]> resultado = getFilmeProdutor.getResultList();
         
         return resultado;
     }

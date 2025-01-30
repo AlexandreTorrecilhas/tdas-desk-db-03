@@ -20,6 +20,7 @@ class ControladorTelaLogin {
     
     public void consultarLogin(String usuario, char[] senha){
         UsuarioEntidade login = new UsuarioEntidade(usuario, senha.toString());
+
         boolean usuarioExiste = new UsuarioDao().consultaLogin(login);
         
         if(usuarioExiste){
