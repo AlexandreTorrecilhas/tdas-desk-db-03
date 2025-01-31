@@ -39,8 +39,6 @@ class ControladorTelaListagem {
         
         this.modeloTabela.setNumRows(0);
         
-        JOptionPane.showMessageDialog(null, resultado.toArray().length);
-        
         for(Object[] valor : resultado){
             System.out.println(valor);
             modeloTabela.addRow(valor);

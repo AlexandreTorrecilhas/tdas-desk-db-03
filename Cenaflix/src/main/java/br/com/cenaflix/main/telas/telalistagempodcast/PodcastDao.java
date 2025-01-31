@@ -11,7 +11,6 @@ import java.util.List;
 //Pacotes jakarta
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
 /**
  *
  * @author carlos.sa
