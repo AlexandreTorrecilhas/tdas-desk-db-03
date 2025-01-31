@@ -44,3 +44,5 @@ INSERT INTO usuario(login, senha)
 	VALUES("carloss", "mudar@123");
     
 DELETE FROM usuario WHERE id_usuario = 1;
+
+SELECT * FROM podcast;
