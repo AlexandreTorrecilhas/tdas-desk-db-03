@@ -37,7 +37,7 @@ class PodcastDao {
         Query getFilmeProdutor = this.em.createQuery("SELECT pod.id_podcast, pro.nomeProdutora, pod.nomeEpisodio, pod.qtdEpisodio "
                 + "FROM PodcastEntidade pod "
                 + "JOIN pod.nomeProdutora pro "
-                + "WHERE (:nomeProdutora IS NULL OR pro.nomeProdutora LIKE ':nomeProdutora')");
+                + "WHERE (:nomeProdutora IS NULL OR pro.nomeProdutora LIKE :nomeProdutora)");
         
         if(nomeProdutora != null){
             getFilmeProdutor.setParameter("nomeProdutora", "%" + nomeProdutora + "%");
