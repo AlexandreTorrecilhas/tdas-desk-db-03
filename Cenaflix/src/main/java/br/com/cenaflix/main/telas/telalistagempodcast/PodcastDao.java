@@ -17,8 +17,7 @@ import jakarta.persistence.Query;
  */
 class PodcastDao {
     
-    private EntityManager em = JPAUtil.getEntityManager();
-    
+    private final EntityManager em = JPAUtil.getEntityManager();
     
     public PodcastDao(){}
     
@@ -49,5 +48,7 @@ class PodcastDao {
         
         return resultado;
     }
+    
+    
     
 }

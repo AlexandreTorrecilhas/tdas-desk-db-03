@@ -45,4 +45,26 @@ INSERT INTO usuario(login, senha)
     
 DELETE FROM usuario WHERE id_usuario = 1;
 
+SHOW CREATE TABLE podcast;
+
+DELETE FROM podcast
+WHERE id_produtora BETWEEN 1 AND 5;
+
+INSERT INTO produtora (nome_produtora) VALUES
+('Warner Bros. Pictures'),
+('Universal Pictures'),
+('Paramount Pictures'),
+('20th Century Studios'),
+('Columbia Pictures');
+
+ALTER TABLE produtora
+	ADD CONSTRAINT pro_nom_pro UNIQUE(nome_produtora);
+    
+INSERT INTO podcast (nome_episodio, qtd_episodio, duracao) VALUES
+('Behind the Scenes of Blockbusters', 15, 45),
+('Classic Movie Reviews', 10, 30),
+('Directors Cut Interviews', 20, 50),
+('The Evolution of Special Effects', 12, 40),
+('Oscar Winners Breakdown', 18, 55); 
+    
 SELECT * FROM podcast;

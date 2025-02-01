@@ -59,7 +59,7 @@
                               <Component id="jLabel1" max="32767" attributes="0"/>
                               <Component id="txtNomeProdutor" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNomeEpisodio" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNumeroEpisodio" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtQtdEpisodio" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtDuracaoPodcast" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtUrlRepositorio" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -91,7 +91,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtNumeroEpisodio" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtQtdEpisodio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
             <Property name="text" type="java.lang.String" value="N&#xba; do Epis&#xf3;dio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNumeroEpisodio">
+        <Component class="javax.swing.JTextField" name="txtQtdEpisodio">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -166,6 +166,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarPodcastActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

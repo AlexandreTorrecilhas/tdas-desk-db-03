@@ -6,20 +6,39 @@ package br.com.cenaflix.main.telas.telacadastropodcast;
 
 //Pacotes projeto
 import br.com.cenaflix.main.ControladorVisibilidade;
-
+import br.com.cenaflix.main.telas.telacadastropodcast.TelaCadastroDao;
+//Pacotes swing
+import javax.swing.JTextField;
+//Pacotes util
+import java.util.LinkedHashMap;
 /**
  *
  * @author carlo
  */
 public class JFrameCadastroPodcast extends javax.swing.JFrame {
 
+    private LinkedHashMap<String, JTextField> mapValoresFormulario = new LinkedHashMap();
+    private TelaCadastroDao telaCadastroDao;
     /**
      * Creates new form JFrameCadastroPodcast
      */
     public JFrameCadastroPodcast() {
         initComponents();
+        this.setMapValoresFormulario();
+        this.setTelaCadastroDao();
     }
 
+    private void setMapValoresFormulario(){
+        this.mapValoresFormulario.put("nomeProdutora", this.txtNomeProdutor);
+        this.mapValoresFormulario.put("nomeEpisodio", this.txtNomeEpisodio);
+        this.mapValoresFormulario.put("qtdEpisodio", this.txtQtdEpisodio);
+        this.mapValoresFormulario.put("duracao", this.txtDuracaoPodcast);
+    }
+    
+    private void setTelaCadastroDao(){
+        this.telaCadastroDao = new TelaCadastroDao(this.mapValoresFormulario);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,7 +55,7 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNomeEpisodio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNumeroEpisodio = new javax.swing.JTextField();
+        txtQtdEpisodio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtDuracaoPodcast = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -67,6 +86,11 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
         });
 
         btnCadastrarPodcast.setText("Cadastrar");
+        btnCadastrarPodcast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarPodcastActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +109,7 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNomeProdutor)
                             .addComponent(txtNomeEpisodio)
-                            .addComponent(txtNumeroEpisodio)
+                            .addComponent(txtQtdEpisodio)
                             .addComponent(txtDuracaoPodcast)
                             .addComponent(txtUrlRepositorio))
                         .addGap(208, 208, 208))
@@ -111,7 +135,7 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNumeroEpisodio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtQtdEpisodio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -151,6 +175,10 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
         ControladorVisibilidade.fecharTelaCadastroPodcast();
         ControladorVisibilidade.mostrarTelaListagemPodcast();
     }//GEN-LAST:event_btnVerLitagemPodcastActionPerformed
+
+    private void btnCadastrarPodcastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPodcastActionPerformed
+        this.telaCadastroDao.cadastrarProdutora();
+    }//GEN-LAST:event_btnCadastrarPodcastActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,7 +228,7 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
     private javax.swing.JTextField txtDuracaoPodcast;
     private javax.swing.JTextField txtNomeEpisodio;
     private javax.swing.JTextField txtNomeProdutor;
-    private javax.swing.JTextField txtNumeroEpisodio;
+    private javax.swing.JTextField txtQtdEpisodio;
     private javax.swing.JTextField txtUrlRepositorio;
     // End of variables declaration//GEN-END:variables
 }
