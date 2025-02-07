@@ -4,6 +4,8 @@
  */
 package br.com.cenaflix.main;
 
+//Pacotes do Projeto
+import br.com.cenaflix.main.telas.LimparFormulario;
 import br.com.cenaflix.main.telas.telalogin.JFrameTelaLogin;
 import br.com.cenaflix.main.telas.telalistagempodcast.JFrameListagemPodcast;
 import br.com.cenaflix.main.telas.telacadastropodcast.JFrameCadastroPodcast;
@@ -25,18 +27,20 @@ public class ControladorVisibilidade {
     }
     
     public static void mostrarTelaListagemPodcast(){
+        LimparFormulario.limparFormulario(jFrameListagemPodcast.getMapValoresFormulario());
         jFrameListagemPodcast.setVisible(true);
     }
     
     public static void fecharTelaListagemPodcast(){
-        jFrameListagemPodcast.setVisible(false);
+        jFrameListagemPodcast.dispose();
     }
     
     public static void mostrarTelaCadastroPodcast(){
+        LimparFormulario.limparFormulario(jFrameCadastroPodcast.getMapValoresFormulario());
         jFrameCadastroPodcast.setVisible(true);
     }
     
     public static void fecharTelaCadastroPodcast(){
-        jFrameCadastroPodcast.setVisible(false);
+        jFrameCadastroPodcast.dispose();
     }
 }

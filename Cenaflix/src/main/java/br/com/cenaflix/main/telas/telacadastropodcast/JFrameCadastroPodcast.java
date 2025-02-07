@@ -6,7 +6,6 @@ package br.com.cenaflix.main.telas.telacadastropodcast;
 
 //Pacotes projeto
 import br.com.cenaflix.main.ControladorVisibilidade;
-import br.com.cenaflix.main.telas.telacadastropodcast.TelaCadastroDao;
 //Pacotes swing
 import javax.swing.JTextField;
 //Pacotes util
@@ -37,6 +36,10 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
     
     private void setTelaCadastroDao(){
         this.telaCadastroDao = new TelaCadastroDao(this.mapValoresFormulario);
+    }
+    
+    public LinkedHashMap getMapValoresFormulario(){
+        return this.mapValoresFormulario;
     }
     
     /**

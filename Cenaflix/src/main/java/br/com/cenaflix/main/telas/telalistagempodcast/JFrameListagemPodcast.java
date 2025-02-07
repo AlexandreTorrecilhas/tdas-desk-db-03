@@ -7,8 +7,11 @@ package br.com.cenaflix.main.telas.telalistagempodcast;
 //Pacotes do projeto
 import br.com.cenaflix.main.ControladorVisibilidade;
 //Pacotes swing
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+//Pacotes util
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -20,6 +23,7 @@ public class JFrameListagemPodcast extends javax.swing.JFrame {
     private final DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
     private ControladorTelaListagem controlador = new ControladorTelaListagem(this.modeloTabela);
     private final TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(this.modeloTabela);
+    private LinkedHashMap<String, JTextField> mapValoresFormulario = new LinkedHashMap();
     
     
     
@@ -30,6 +34,15 @@ public class JFrameListagemPodcast extends javax.swing.JFrame {
         initComponents();
         this.tblResultado.setRowSorter(sorter);
         this.controlador.inserirDezPrimeirosValores();
+        this.setMapValoresFormulario();
+    }
+    
+    private void setMapValoresFormulario(){
+        this.mapValoresFormulario.put("nomeProdutoraPodcast", txtProdutora);
+    }
+    
+    public LinkedHashMap getMapValoresFormulario(){
+        return this.mapValoresFormulario;
     }
     
     /**

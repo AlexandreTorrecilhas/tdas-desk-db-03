@@ -35,7 +35,6 @@ class UsuarioDao {
                     .getSingleResult();
             
             if(this.login != null){
-                JOptionPane.showMessageDialog(null, "Usuário localizado");
                 return true;
             }else{
                 JOptionPane.showMessageDialog(null, "Usuário informado não foi localizado");

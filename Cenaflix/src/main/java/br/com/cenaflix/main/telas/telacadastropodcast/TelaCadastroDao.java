@@ -43,7 +43,7 @@ class TelaCadastroDao {
                 TypedQuery<ProdutoraEntidade> queryProdutora = this.em.createQuery("SELECT pro FROM ProdutoraEntidade pro "
                     + "WHERE pro.nomeProdutora LIKE :nomeProdutora", ProdutoraEntidade.class);
         
-                queryProdutora.setParameter("nomeProdutora", "%" + this.mapValoresFormulario.get("nomeProdutora").getText() + "%");
+                queryProdutora.setParameter("nomeProdutora", "%" + this.mapValoresFormulario.get("nomeProdutoraPodcast").getText() + "%");
                 this.produtoraEntidade = queryProdutora.getSingleResult();
                 this.inserirValorNoBanco();
             }catch(NoResultException e){
@@ -56,9 +56,9 @@ class TelaCadastroDao {
     private void inserirValorNoBanco(){
         try{
             this.podcastEntidade.setNomeProdutora(this.produtoraEntidade);
-            this.podcastEntidade.setNomeEpisodio(this.mapValoresFormulario.get("nomeEpisodio").getText());
-            this.podcastEntidade.setQtdEpisodio(Short.parseShort(this.mapValoresFormulario.get("qtdEpisodio").getText()));
-            this.podcastEntidade.setDuracao(Short.parseShort(this.mapValoresFormulario.get("duracao").getText()));
+            this.podcastEntidade.setNomeEpisodio(this.mapValoresFormulario.get("nomePodcast").getText().trim());
+            this.podcastEntidade.setQtdEpisodio(Short.parseShort(this.mapValoresFormulario.get("numeroEpisodio").getText().trim()));
+            this.podcastEntidade.setDuracao(Short.parseShort(this.mapValoresFormulario.get("duracaoEpisodio").getText().trim()));
             this.em.getTransaction().begin();
             this.em.persist(this.podcastEntidade);
             this.em.getTransaction().commit();
