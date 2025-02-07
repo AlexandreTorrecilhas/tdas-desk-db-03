@@ -29,10 +29,10 @@ public class JFrameCadastroPodcast extends javax.swing.JFrame {
     }
 
     private void setMapValoresFormulario(){
-        this.mapValoresFormulario.put("nomeProdutora", this.txtNomeProdutor);
-        this.mapValoresFormulario.put("nomeEpisodio", this.txtNomeEpisodio);
-        this.mapValoresFormulario.put("qtdEpisodio", this.txtQtdEpisodio);
-        this.mapValoresFormulario.put("duracao", this.txtDuracaoPodcast);
+        this.mapValoresFormulario.put("nomeProdutoraPodcast", this.txtNomeProdutor);
+        this.mapValoresFormulario.put("nomePodcast", this.txtNomeEpisodio);
+        this.mapValoresFormulario.put("numeroEpisodio", this.txtQtdEpisodio);
+        this.mapValoresFormulario.put("duracaoEpisodio", this.txtDuracaoPodcast);
     }
     
     private void setTelaCadastroDao(){

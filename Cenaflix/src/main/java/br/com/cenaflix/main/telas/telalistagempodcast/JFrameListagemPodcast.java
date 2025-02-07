@@ -16,7 +16,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class JFrameListagemPodcast extends javax.swing.JFrame {
 
-    private final String[] colunas = {"id_podcast", "Nome Produtora", "Nome episodio", "Quantidade Episódios", "Duração"};
+    private final String[] colunas = {"id_podcast", "Nome Produtora", "Nome episodio", "Número Episódio", "Duração"};
     private final DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
     private ControladorTelaListagem controlador = new ControladorTelaListagem(this.modeloTabela);
     private final TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(this.modeloTabela);

@@ -25,6 +25,7 @@ import java.util.LinkedHashMap;
 class TelaCadastroDao {
     
     private final EntityManager em = JPAUtil.getEntityManager();
+    private final ValidacaoCadastroPodcast validador = new ValidacaoCadastroPodcast();
     private PodcastEntidade podcastEntidade = new PodcastEntidade();
     private ProdutoraEntidade produtoraEntidade = new ProdutoraEntidade();
     private LinkedHashMap<String, JTextField> mapValoresFormulario = new LinkedHashMap();
@@ -35,17 +36,20 @@ class TelaCadastroDao {
     }
     
     public void cadastrarProdutora(){
+    
+        final boolean resultadoValidacao = this.validador.validacaoCadstroPodcast(this.mapValoresFormulario);
+        if(resultadoValidacao){
+            try{
+                TypedQuery<ProdutoraEntidade> queryProdutora = this.em.createQuery("SELECT pro FROM ProdutoraEntidade pro "
+                    + "WHERE pro.nomeProdutora LIKE :nomeProdutora", ProdutoraEntidade.class);
         
-        try{
-            TypedQuery<ProdutoraEntidade> queryProdutora = this.em.createQuery("SELECT pro FROM ProdutoraEntidade pro "
-                + "WHERE pro.nomeProdutora LIKE :nomeProdutora", ProdutoraEntidade.class);
-        
-            queryProdutora.setParameter("nomeProdutora", "%" + this.mapValoresFormulario.get("nomeProdutora").getText() + "%");
-            this.produtoraEntidade = queryProdutora.getSingleResult();
-            this.inserirValorNoBanco();
-        }catch(NoResultException e){
-            JOptionPane.showMessageDialog(null, "O produtor informando não está cadastrado");
-            System.out.println("Classe: CriarPodcast/Método: findProdutora()/Erro: " + e.getMessage());
+                queryProdutora.setParameter("nomeProdutora", "%" + this.mapValoresFormulario.get("nomeProdutora").getText() + "%");
+                this.produtoraEntidade = queryProdutora.getSingleResult();
+                this.inserirValorNoBanco();
+            }catch(NoResultException e){
+                JOptionPane.showMessageDialog(null, "O produtor informando não está cadastrado");
+                System.out.println("Classe: CriarPodcast/Método: findProdutora()/Erro: " + e.getMessage());
+            }
         }
     }
     
@@ -55,10 +59,10 @@ class TelaCadastroDao {
             this.podcastEntidade.setNomeEpisodio(this.mapValoresFormulario.get("nomeEpisodio").getText());
             this.podcastEntidade.setQtdEpisodio(Short.parseShort(this.mapValoresFormulario.get("qtdEpisodio").getText()));
             this.podcastEntidade.setDuracao(Short.parseShort(this.mapValoresFormulario.get("duracao").getText()));
-        
             this.em.getTransaction().begin();
             this.em.persist(this.podcastEntidade);
             this.em.getTransaction().commit();
+            JOptionPane.showMessageDialog(null, "Valor cadastrado com suecsso !");
         }catch(Exception e){
             this.em.getTransaction().rollback();
             System.out.println("Classe: CriarPodcast/Método: cadastrarProdutora/Erro: " + e.getMessage());

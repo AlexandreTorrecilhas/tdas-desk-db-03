@@ -66,5 +66,7 @@ INSERT INTO podcast (nome_episodio, qtd_episodio, duracao) VALUES
 ('Directors Cut Interviews', 20, 50),
 ('The Evolution of Special Effects', 12, 40),
 ('Oscar Winners Breakdown', 18, 55); 
+
+
     
 SELECT * FROM podcast;
